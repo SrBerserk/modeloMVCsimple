@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Insert title here</title>
+</head>
+<body>
+	<table border="1">
+		<thead>
+			<tr>
+				<th>Nombre</th>
+				<th>Apellidos</th>
+				<th>Teléfono</th>
+				<th>Correo</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each=" usuario : ${usuarios}">
+				<th th:text=" ${usuario.nombre}"></th>
+				<th th:text=" ${usuario.apellidos} "></th>
+				<th th:text=" ${usuario.telefono}"></th>
+				<th th:text=" ${usuario.correo}"></th>
+			</tr>
+		</tbody>
+	</table>
+	
+	<form action= "#" th:action="@{/user/addusers}" th:object="${user}" method="post">
+	<p><input type="text" placeholder= "Nombre" th:field="*{nombre}"/></p>
+	<p><input type="text" placeholder= "Apellidos" th:field="*{apellidos}"/></p>
+	<p><input type="text" placeholder= "Teléfono" th:field="*{telefono}"/></p>
+	<p><input type="text" placeholder= "Correo" th:field="*{correo}"/></p>
+	
+	<p><input type="submit" value="enviar"/></p>
+	</form>
+	
+	
+</body>
+</html>
